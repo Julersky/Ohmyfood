@@ -97,7 +97,7 @@ body{
 
 .header--restaurants{
     position: sticky;
-    top: 0;
+    top: -1;
     z-index:1;
     & img{
         margin-right: auto;
@@ -272,7 +272,6 @@ body{
         }
 
         &_legende{
-            margin: 0;
             padding-inline-start:25px;
             padding-inline-end:25px;
             padding-block-start:10px;
