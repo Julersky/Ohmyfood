@@ -37,7 +37,7 @@ li{
 body{
     font-family: $body-ff;
     color: $color-body;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .fonction{
@@ -59,8 +59,7 @@ body{
     color: white;
     box-shadow: $box-shadow--color;
     width:200px;
-    margin: 30px auto;
-    cursor: pointer ;
+    cursor: pointer;
 
 }
 
@@ -77,9 +76,10 @@ body{
 .header{
     display: flex;
     justify-content: center;
-    padding-bottom: 15px;
+    padding: 10px 0px 15px;
+    margin-bottom: 3px;
     background-color: white;
-    z-index: 3;
+    box-shadow: 0px 4px 5px -2px #CACACA;
 
 
     & img{
@@ -97,7 +97,8 @@ body{
 
 .header--restaurants{
     position: sticky;
-    top: -2;
+    top: 0;
+    z-index:1;
     & img{
         margin-right: auto;
         margin-left: auto;
@@ -113,8 +114,7 @@ body{
         align-items: center;
         background-color: #EAEAEA;
         height: 60px;
-        // border-top:.5px solid #353535;
-        // box-shadow: inset 0px 0 0px .5px grey;
+
         & input {
             border: none;
             background-color:transparent;
@@ -123,13 +123,16 @@ body{
             }
         }
         & i{
-            font-size: 19px;
+            font-size: 20px;
             margin-inline-end:15px ;
         }
     }
     & h2,p{
         text-align: center;
         margin: 15px 0px 0px;
+    }
+    & a{        
+        margin: 30px auto;
     }
 
 
@@ -140,6 +143,11 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
+    & h2{
+        align-self: flex-start;
+        margin:15px 0px 50px 35px;
+    }
     ol{
         @media screen and (min-width: 992px){
             display: flex;
@@ -152,7 +160,8 @@ body{
     }
 
     & a{
-        counter-increment: item;
+        cursor: pointer;
+        height: 100%; 
 
     }
     & li{
@@ -163,6 +172,7 @@ body{
         border-radius: 23px;
         min-width: fit-content; 
         box-shadow: $box-shadow;
+        counter-increment: item;
 
         &:before{
             content: counter(item);
@@ -191,12 +201,22 @@ body{
 }
 
 .restaurants{
-    align-items: center;
     padding-bottom: 50px;
-    & h2{
-        margin-bottom: 50px;
-
+    align-items: center;  
+    & .restaurant{          
+        margin: 0px 35px;
     }
+    & h2{
+        align-self: flex-start;
+        margin:15px 0px 50px 35px;
+    }
+    a{
+        min-width: fit-content;
+        margin: 0px 20px;
+    }
+
+
+
     @media screen and (min-width: 769px){
         .restaurant{
             display: flex;
@@ -209,7 +229,6 @@ body{
             justify-content: center;
             display: flex;
             min-width: fit-content;
-            width: 45%;
 
             & .card{
                 justify-content: center;
@@ -238,20 +257,22 @@ body{
             & p{
                 text-align: center;
                 padding: 10px;
-                width: 80px;
+                width: 20%;
                 font-weight: 600;
+                margin-right: 15px;
                 border: none;
-                border-radius: 5px;
+                border-radius: 3px;
                 color:#076950a4;
                 background-color:#99E2D0;
                 position: relative;
-                bottom: 185px;
-                left: 240px;
+                float: right;              
+                bottom: 180px;
                 visibility: hidden;
             }
         }
 
         &_legende{
+            margin: 0;
             padding-inline-start:25px;
             padding-inline-end:25px;
             padding-block-start:10px;
@@ -264,9 +285,9 @@ body{
 
 
             & i{
-                font-size: 20px;
-                top: 10px;
-                position: relative;
+                font-size: 30px;
+                display:flex;
+                align-items: center;
             }
         }
     }
@@ -281,6 +302,11 @@ body{
 footer{
     background-color: #353535;
     padding: 30px 30px 15px;
+
+    .footer_title{
+        font-size: 20px;
+        font-family: $logo-ff;
+    }
 
     & a{
         color: white;
@@ -321,18 +347,19 @@ footer{
     position: relative;
     bottom: 55px;
     background-color: #F6F6F6;
-    & .menu__title{
-        width: 100%;
+    & .menu__title{    
+        width: 100%; 
         display: flex;
         justify-content: space-between;
+
+        @media screen and (min-width: 992px){
+            width: 70%;
+            margin: auto;
+        }
 
         & a{
             align-self: center;
             font-size: 25px;
-            @media screen and (min-width: 992px) {
-                margin-right: 100px;
-                
-            }
         }
     }
     & .menu_element{
@@ -364,6 +391,7 @@ footer{
     }
     & .entrees,.plats,.desserts{
         width: 100%;
+        
         @media screen and (min-width: 992px){
             width: 70%;
             margin: auto;

@@ -2,6 +2,10 @@
 /* Style général */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap");
 /* Variables*/
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -18,7 +22,7 @@ li {
 body {
   font-family: Roboto, sans-serif;
   color: black;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .fonction {
@@ -39,7 +43,6 @@ body {
   color: white;
   box-shadow: inset -8px -15px 25px 5px #9356DC, inset 20px 25px 30px 5px #FF79DA, 3px 4px 5px #CACACA;
   width: 200px;
-  margin: 30px auto;
   cursor: pointer;
 }
 
@@ -47,9 +50,10 @@ body {
 .header {
   display: flex;
   justify-content: center;
-  padding-bottom: 15px;
+  padding: 10px 0px 15px;
+  margin-bottom: 3px;
   background-color: white;
-  z-index: 3;
+  box-shadow: 0px 4px 5px -2px #CACACA;
 }
 .header img {
   width: 200px;
@@ -67,6 +71,7 @@ body {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 .header--restaurants img {
   margin-right: auto;
@@ -88,7 +93,7 @@ body {
   outline: none;
 }
 .search .search-bar i {
-  font-size: 19px;
+  font-size: 20px;
   -webkit-margin-end: 15px;
           margin-inline-end: 15px;
 }
@@ -96,12 +101,20 @@ body {
   text-align: center;
   margin: 15px 0px 0px;
 }
+.search a {
+  margin: 30px auto;
+}
 
 /* A REVOIR!!!*/
 .fonction {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
+}
+.fonction h2 {
+  align-self: flex-start;
+  margin: 15px 0px 50px 35px;
 }
 @media screen and (min-width: 992px) {
   .fonction ol {
@@ -112,7 +125,8 @@ body {
   }
 }
 .fonction a {
-  counter-increment: item;
+  cursor: pointer;
+  height: 100%;
 }
 .fonction li {
   margin: 20px 0;
@@ -124,6 +138,7 @@ body {
   min-width: -moz-fit-content;
   min-width: fit-content;
   box-shadow: 1px 3px 5px #CACACA;
+  counter-increment: item;
 }
 .fonction li:before {
   content: counter(item);
@@ -151,11 +166,21 @@ body {
 }
 
 .restaurants {
-  align-items: center;
   padding-bottom: 50px;
+  align-items: center;
+}
+.restaurants .restaurant {
+  margin: 0px 35px;
 }
 .restaurants h2 {
-  margin-bottom: 50px;
+  align-self: flex-start;
+  margin: 15px 0px 50px 35px;
+}
+.restaurants a {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  margin: 0px 20px;
 }
 @media screen and (min-width: 769px) {
   .restaurants .restaurant {
@@ -171,7 +196,6 @@ body {
     min-width: -webkit-fit-content;
     min-width: -moz-fit-content;
     min-width: fit-content;
-    width: 45%;
   }
   .restaurants a .card {
     justify-content: center;
@@ -200,18 +224,20 @@ body {
 .restaurants .card_image p {
   text-align: center;
   padding: 10px;
-  width: 80px;
+  width: 20%;
   font-weight: 600;
+  margin-right: 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   color: rgba(7, 105, 80, 0.6431372549);
   background-color: #99E2D0;
   position: relative;
-  bottom: 185px;
-  left: 240px;
+  float: right;
+  bottom: 180px;
   visibility: hidden;
 }
 .restaurants .card_legende {
+  margin: 0;
   -webkit-padding-start: 25px;
           padding-inline-start: 25px;
   -webkit-padding-end: 25px;
@@ -226,9 +252,9 @@ body {
   padding-bottom: 10px;
 }
 .restaurants .card_legende i {
-  font-size: 20px;
-  top: 10px;
-  position: relative;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
 }
 .restaurants .card--nouveau p {
   visibility: visible;
@@ -237,6 +263,10 @@ body {
 footer {
   background-color: #353535;
   padding: 30px 30px 15px;
+}
+footer .footer_title {
+  font-size: 20px;
+  font-family: Shrikhand, sans-serif;
 }
 footer a {
   color: white;
@@ -281,14 +311,15 @@ footer h4 {
   display: flex;
   justify-content: space-between;
 }
+@media screen and (min-width: 992px) {
+  .menu__container .menu__title {
+    width: 70%;
+    margin: auto;
+  }
+}
 .menu__container .menu__title a {
   align-self: center;
   font-size: 25px;
-}
-@media screen and (min-width: 992px) {
-  .menu__container .menu__title a {
-    margin-right: 100px;
-  }
 }
 .menu__container .menu_element {
   display: flex;
