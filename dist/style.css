@@ -37,6 +37,7 @@ body {
 }
 
 .btn {
+  text-align: center;
   padding: 15px 10px;
   border-radius: 30px;
   border: none;
@@ -44,6 +45,8 @@ body {
   box-shadow: inset -8px -15px 25px 5px #9356DC, inset 20px 25px 30px 5px #FF79DA, 3px 4px 5px #CACACA;
   width: 200px;
   cursor: pointer;
+  margin: 30px auto;
+  font-weight: 500;
 }
 
 /*INDEX*/
@@ -58,24 +61,24 @@ body {
 .header img {
   width: 200px;
 }
-.header .previous { /*Pour page restaurant*/
+
+.header--restaurants {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding-top: 5px;
+}
+.header--restaurants img {
+  margin: 0px auto;
+}
+.header--restaurants .previous { /*Pour page restaurant*/
   -webkit-padding-start: 25px;
           padding-inline-start: 25px;
   -webkit-padding-end: 25px;
           padding-inline-end: 25px;
   font-size: 25px;
   align-self: center;
-}
-
-.header--restaurants {
-  position: -webkit-sticky;
-  position: sticky;
-  top: -1;
-  z-index: 1;
-}
-.header--restaurants img {
-  margin-right: auto;
-  margin-left: auto;
 }
 
 .search .search-bar {
@@ -101,34 +104,37 @@ body {
   text-align: center;
   margin: 15px 0px 0px;
 }
-.search a {
-  margin: 30px auto;
+.search p {
+  color: grey;
+  font-weight: 300;
 }
 
 /* A REVOIR!!!*/
 .fonction {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  margin: 0;
+  margin-bottom: 50px;
 }
 .fonction h2 {
   align-self: flex-start;
-  margin: 15px 0px 50px 35px;
+  margin: 15px 0px 50px 0px;
+}
+.fonction .links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 @media screen and (min-width: 992px) {
-  .fonction ol {
+  .fonction .links {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 35px;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
   }
 }
-.fonction a {
-  cursor: pointer;
-  height: 100%;
-}
-.fonction li {
+.fonction .btn_fonction {
+  width: 200px;
   margin: 20px 0;
   background-color: #F6F6F6;
   border: none;
@@ -137,10 +143,11 @@ body {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
+  font-weight: 600;
   box-shadow: 1px 3px 5px #CACACA;
   counter-increment: item;
 }
-.fonction li:before {
+.fonction .btn_fonction:before {
   content: counter(item);
   border-radius: 100%;
   background-color: #9356DC;
@@ -149,10 +156,10 @@ body {
   color: white;
   margin-left: -20px;
 }
-.fonction li:hover {
+.fonction .btn_fonction:hover {
   background-color: #F5EDFF;
 }
-.fonction li:hover i {
+.fonction .btn_fonction:hover i {
   color: #9356DC;
 }
 .fonction i {
@@ -184,6 +191,7 @@ body {
 }
 @media screen and (min-width: 769px) {
   .restaurants .restaurant {
+    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -202,7 +210,7 @@ body {
   }
 }
 .restaurants .card {
-  width: 350px;
+  width: 300px;
   height: 250px;
   border-radius: 15px;
   margin-bottom: 15px;
@@ -214,12 +222,11 @@ body {
 }
 .restaurants .card_image img {
   width: 100%;
+  min-height: 100%;
   max-height: 100%;
   border-radius: 15px 15px 0px 0px;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 0px -55px;
-     object-position: 0px -55px;
 }
 .restaurants .card_image p {
   text-align: center;
@@ -232,7 +239,7 @@ body {
   color: rgba(7, 105, 80, 0.6431372549);
   background-color: #99E2D0;
   position: relative;
-  float: right;
+  left: 210px;
   bottom: 180px;
   visibility: hidden;
 }
@@ -250,10 +257,16 @@ body {
   margin: 0;
   padding-bottom: 10px;
 }
+.restaurants .card_legende section {
+  width: 90%;
+}
 .restaurants .card_legende i {
-  font-size: 30px;
+  font-size: 25px;
   display: flex;
   align-items: center;
+}
+.restaurants .card_legende i:hover {
+  background-color: green;
 }
 .restaurants .card--nouveau p {
   visibility: visible;
@@ -306,6 +319,7 @@ footer h4 {
   background-color: #F6F6F6;
 }
 .menu__container .menu__title {
+  font-family: Shrikhand, sans-serif;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -320,6 +334,9 @@ footer h4 {
   align-self: center;
   font-size: 25px;
 }
+.menu__container .menu__title a i {
+  color: red;
+}
 .menu__container .menu_element {
   display: flex;
   flex-direction: column;
@@ -330,6 +347,9 @@ footer h4 {
   background-color: white;
 }
 .menu__container .menu_element h3 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin: 0px 0px 5px;
 }
 .menu__container .menu_element .menu_element_info {

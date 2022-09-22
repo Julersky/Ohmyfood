@@ -53,13 +53,17 @@ body{
 
 }
 .btn{
+    text-align: center;
     padding: 15px 10px;
     border-radius: 30px;
     border: none;
     color: white;
     box-shadow: $box-shadow--color;
     width:200px;
-    cursor: pointer;
+    cursor: pointer;      
+    margin: 30px auto;
+    font-weight: 500;
+    
 
 }
 
@@ -87,21 +91,23 @@ body{
         
     }
 
+
+}
+
+.header--restaurants{
+    position: sticky;
+    top: 0;
+    z-index:1;
+    padding-top: 5px;
+    & img{
+        margin: 0px auto;
+    }
     & .previous{ /*Pour page restaurant*/ 
         padding-inline-start: 25px;
         padding-inline-end: 25px;      
         font-size: 25px;
         align-self: center;
-    }
-}
 
-.header--restaurants{
-    position: sticky;
-    top: -1;
-    z-index:1;
-    & img{
-        margin-right: auto;
-        margin-left: auto;
     }
 }
 
@@ -131,46 +137,51 @@ body{
         text-align: center;
         margin: 15px 0px 0px;
     }
-    & a{        
-        margin: 30px auto;
+    & p{
+        color: grey;
+        font-weight: 300;
     }
+
 
 
 }
 
 /* A REVOIR!!!*/ 
 .fonction{
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    margin: 0;
+    margin-bottom: 50px;
+
     & h2{
         align-self: flex-start;
-        margin:15px 0px 50px 35px;
+        margin:15px 0px 50px 0px;
     }
-    ol{
+
+    .links{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         @media screen and (min-width: 992px){
             display: flex;
             flex-direction: row;
-            justify-content:space-between;
-            gap: 35px;
+            justify-content:center;
+            gap: 25px;
+            flex-wrap: wrap;
    
         }
         
     }
 
-    & a{
-        cursor: pointer;
-        height: 100%; 
 
-    }
-    & li{
+    & .btn_fonction{
+        width: 200px;
         margin: 20px 0;
         background-color:#F6F6F6;
         border: none;
         padding: 25px 40px 25px 10px;
         border-radius: 23px;
         min-width: fit-content; 
+        font-weight: 600;
         box-shadow: $box-shadow;
         counter-increment: item;
 
@@ -203,8 +214,10 @@ body{
 .restaurants{
     padding-bottom: 50px;
     align-items: center;  
+
     & .restaurant{          
         margin: 0px 35px;
+        
     }
     & h2{
         align-self: flex-start;
@@ -219,6 +232,7 @@ body{
 
     @media screen and (min-width: 769px){
         .restaurant{
+            width: 90%;
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -238,7 +252,7 @@ body{
 
     }
     .card{
-        width: 350px;
+        width: 300px;
         height: 250px;
         border-radius: 15px;
         margin-bottom:15px ;
@@ -249,10 +263,10 @@ body{
             height: 70%;
             & img{
                 width: 100%;
+                min-height: 100%;
                 max-height: 100%;
                 border-radius: 15px 15px 0px 0px;            
                 object-fit:cover;
-                object-position: 0px -55px;
             }
             & p{
                 text-align: center;
@@ -265,7 +279,7 @@ body{
                 color:#076950a4;
                 background-color:#99E2D0;
                 position: relative;
-                float: right;              
+                left: 210px;              
                 bottom: 180px;
                 visibility: hidden;
             }
@@ -281,12 +295,20 @@ body{
                 margin:0;
                 padding-bottom: 10px;
             }
+            & section{
+                width: 90%;
+            }
 
 
             & i{
-                font-size: 30px;
+                font-size: 25px;
                 display:flex;
                 align-items: center;
+                
+                &:hover{
+                    background-color: green;
+                    // box-shadow: $box-shadow--color;
+                }
             }
         }
     }
@@ -347,6 +369,7 @@ footer{
     bottom: 55px;
     background-color: #F6F6F6;
     & .menu__title{    
+        font-family: $logo-ff;
         width: 100%; 
         display: flex;
         justify-content: space-between;
@@ -359,6 +382,9 @@ footer{
         & a{
             align-self: center;
             font-size: 25px;
+            & i{
+                color: red;
+            }
         }
     }
     & .menu_element{
@@ -370,6 +396,7 @@ footer{
         box-shadow: $box-shadow;
         background-color: white;
         & h3{
+            width: fit-content;
             margin: 0px 0px 5px;
         }
 
@@ -404,4 +431,6 @@ footer{
 
     }
 }
+
+
 
