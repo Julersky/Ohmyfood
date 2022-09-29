@@ -350,13 +350,12 @@ body {
 }
 @media screen and (min-width: 769px) {
   .restaurants .restaurant {
-    width: 90%;
+    width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    margin: 0px 50px;
   }
   .restaurants a {
     justify-content: center;
