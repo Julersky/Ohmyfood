@@ -42,13 +42,168 @@ body {
   border-radius: 30px;
   border: none;
   color: white;
-  box-shadow: inset -8px -15px 25px 5px #9356DC, inset 20px 25px 30px 5px #FF79DA, 3px 4px 5px #CACACA;
+  background: linear-gradient(355deg, #9356DC, #FF79DA);
   width: 200px;
+  box-shadow: 3px 4px 6px rgba(202, 202, 202, 0.6901960784);
   cursor: pointer;
   margin: 30px auto;
   font-weight: 500;
 }
+.btn:hover {
+  box-shadow: 5px 6px 9px rgba(108, 103, 103, 0.69);
+  background: linear-gradient(355deg, rgba(147, 86, 220, 0.9098039216), rgba(255, 121, 218, 0.8509803922));
+}
 
+.loader_container {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  visibility: hidden;
+  position: fixed;
+  z-index: 2;
+  -webkit-animation: loader_container 3s linear;
+          animation: loader_container 3s linear;
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  top: 50%;
+  right: 50%;
+  border-radius: 50%;
+  display: inline-block;
+  position: fixed;
+  border: 6px solid;
+  border-color: #99E2D0 #99E2D0 transparent transparent;
+  box-sizing: border-box;
+  -webkit-animation: rotation 3s linear;
+          animation: rotation 3s linear;
+  visibility: hidden;
+  z-index: 2;
+}
+.loader::after, .loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 6px solid;
+  border-color: #9356DC #9356DC transparent transparent;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  -webkit-animation: rotationBack 3s linear;
+          animation: rotationBack 3s linear;
+  transform-origin: center center;
+  visibility: hidden;
+  z-index: 2;
+}
+.loader::before {
+  width: 70px;
+  height: 70px;
+  border-color: #FF79DA #FF79DA transparent transparent;
+  -webkit-animation: rotation 3s linear;
+          animation: rotation 3s linear;
+  visibility: hidden;
+  z-index: 2;
+}
+
+@-webkit-keyframes loader_container {
+  0% {
+    visibility: visible;
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes loader_container {
+  0% {
+    visibility: visible;
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes rotation {
+  0% {
+    visibility: visible;
+    opacity: 0.9;
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: rotate(360deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(0deg);
+    visibility: hidden;
+  }
+}
+@keyframes rotation {
+  0% {
+    visibility: visible;
+    opacity: 0.9;
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: rotate(360deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(0deg);
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes rotationBack {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(0);
+    transform: opacity(0);
+    visibility: hidden;
+  }
+}
+@keyframes rotationBack {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(0);
+    transform: opacity(0);
+    visibility: hidden;
+  }
+}
 /*INDEX*/
 .header {
   display: flex;
@@ -63,10 +218,6 @@ body {
 }
 
 .header--restaurants {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 1;
   padding-top: 5px;
 }
 .header--restaurants img {
@@ -91,6 +242,7 @@ body {
 .search .search-bar input {
   border: none;
   background-color: transparent;
+  font-size: 14px;
 }
 .search .search-bar input:focus {
   outline: none;
@@ -102,11 +254,15 @@ body {
 }
 .search h2, .search p {
   text-align: center;
-  margin: 15px 0px 0px;
+  margin: 15px 30px 0px;
+}
+.search h2 {
+  font-size: 17px;
 }
 .search p {
   color: grey;
   font-weight: 300;
+  font-size: 13px;
 }
 
 /* A REVOIR!!!*/
@@ -117,6 +273,7 @@ body {
 .fonction h2 {
   align-self: flex-start;
   margin: 15px 0px 50px 0px;
+  font-size: 18px;
 }
 .fonction .links {
   display: flex;
@@ -134,7 +291,7 @@ body {
   }
 }
 .fonction .btn_fonction {
-  width: 200px;
+  width: 242px;
   margin: 20px 0;
   background-color: #F6F6F6;
   border: none;
@@ -143,6 +300,7 @@ body {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
+  font-size: 14px;
   font-weight: 600;
   box-shadow: 1px 3px 5px #CACACA;
   counter-increment: item;
@@ -168,8 +326,8 @@ body {
   width: 15px;
   -webkit-padding-end: 25px;
           padding-inline-end: 25px;
-  -webkit-padding-start: 25px;
-          padding-inline-start: 25px;
+  -webkit-padding-start: 15px;
+          padding-inline-start: 15px;
 }
 
 .restaurants {
@@ -182,6 +340,7 @@ body {
 .restaurants h2 {
   align-self: flex-start;
   margin: 15px 0px 50px 35px;
+  font-size: 18px;
 }
 .restaurants a {
   min-width: -webkit-fit-content;
@@ -244,29 +403,88 @@ body {
   visibility: hidden;
 }
 .restaurants .card_legende {
-  -webkit-padding-start: 25px;
-          padding-inline-start: 25px;
-  -webkit-padding-end: 25px;
-          padding-inline-end: 25px;
-  -webkit-padding-before: 10px;
-          padding-block-start: 10px;
+  width: 90%;
+  padding: 10px 15px 0px 25px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 .restaurants .card_legende h3, .restaurants .card_legende p {
   margin: 0;
   padding-bottom: 10px;
 }
-.restaurants .card_legende section {
-  width: 90%;
+.restaurants .card_legende h3 {
+  font-size: 15px;
 }
-.restaurants .card_legende i {
+.restaurants .card_legende p {
+  font-size: 13px;
+}
+.restaurants .card_legende .favori {
   font-size: 25px;
-  display: flex;
-  align-items: center;
+  height: 25px;
 }
-.restaurants .card_legende i:hover {
-  background-color: green;
+.restaurants .card_legende .favori .note_vide {
+  opacity: 1;
+  -webkit-background-clip: text;
+          background-clip: text;
+  transition: all 0.4s ease;
+}
+.restaurants .card_legende .favori .note_pleine {
+  position: relative;
+  opacity: 1;
+  right: 31px;
+  -webkit-background-clip: text;
+          background-clip: text;
+  transform-origin: center;
+  background-color: #9356DC;
+}
+.restaurants .card_legende .favori:hover .note_vide {
+  opacity: 0;
+}
+.restaurants .card_legende .favori:hover .note_pleine {
+  scale: 1.1;
+  -webkit-animation: opacity 1s ease-in-out forwards;
+          animation: opacity 1s ease-in-out forwards;
+}
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .restaurants .card--nouveau p {
   visibility: visible;
@@ -282,14 +500,15 @@ footer .footer_title {
 }
 footer a {
   color: white;
+  font-size: 12px;
 }
 footer li {
   padding: 5px 0px;
 }
 footer i {
   width: 15px;
-  -webkit-padding-end: 15px;
-          padding-inline-end: 15px;
+  -webkit-padding-end: 10px;
+          padding-inline-end: 10px;
 }
 footer h4 {
   font-family: Shrikhand, sans-serif;
@@ -334,37 +553,92 @@ footer h4 {
   align-self: center;
   font-size: 25px;
 }
-.menu__container .menu__title a i {
-  color: red;
+.menu__container .menu_card:hover .menu_element .clicked {
+  transform: translateX(-55px);
+}
+.menu__container .menu_card:hover .menu_element .clicked i {
+  transform: rotate(360deg);
+}
+.menu__container .menu_card:hover .menu_element .menu_element_desc b {
+  padding-right: 70px;
 }
 .menu__container .menu_element {
+  overflow: hidden;
+  position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
   padding: 15px;
   margin-bottom: 15px;
-  border-radius: 25px;
+  border-radius: 15px;
   box-shadow: 1px 3px 5px #CACACA;
   background-color: white;
 }
 .menu__container .menu_element h3 {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  font-size: 15px;
   margin: 0px 0px 5px;
+  padding-right: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .menu__container .menu_element .menu_element_info {
+  width: 100%;
+}
+.menu__container .menu_element .menu_element_desc {
+  width: 100%;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
+  transition: all 0.4s ease;
 }
-.menu__container .menu_element .menu_element_info b {
+.menu__container .menu_element .menu_element_desc b {
+  text-align: end;
+  width: 15%;
+  font-size: 13px;
+  margin: 0px 0px 0px auto;
   align-self: center;
-  padding-right: 10px;
+  transition: all 0.4s ease;
 }
-.menu__container .menu_element .menu_element_info p {
-  margin: 0;
+.menu__container .menu_element .menu_element_desc p {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  font-size: 13px;
+  margin: 0px 15px 0px 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.menu__container .clicked {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: #99E2D0;
+  left: 100%;
+  bottom: 0px;
+  transition: all 0.4s ease;
+}
+.menu__container .clicked i {
+  position: relative;
+  font-size: 25px;
+  top: 8px;
+  right: 12px;
+  font-weight: 600;
+  background-color: #99E2D0;
+  color: white;
+  transition: transform 0.5s ease;
 }
 .menu__container .entrees, .menu__container .plats, .menu__container .desserts {
   width: 100%;
+  opacity: 0;
+}
+.menu__container .entrees h2, .menu__container .plats h2, .menu__container .desserts h2 {
+  font-size: 17px;
 }
 @media screen and (min-width: 992px) {
   .menu__container .entrees, .menu__container .plats, .menu__container .desserts {
@@ -377,4 +651,44 @@ footer h4 {
   padding-bottom: 10px;
   border-bottom-width: 5px;
   border-bottom: 5px solid #99E2D0;
+}
+.menu__container .entrees {
+  -webkit-animation: fade-in 3s ease;
+          animation: fade-in 3s ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.menu__container .plats {
+  -webkit-animation: fade-in 3s ease-in-out;
+          animation: fade-in 3s ease-in-out;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.menu__container .desserts {
+  -webkit-animation: fade-in 3s ease-in-out;
+          animation: fade-in 3s ease-in-out;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=style.css.map */
