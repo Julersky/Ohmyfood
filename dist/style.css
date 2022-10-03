@@ -55,6 +55,9 @@ body {
 }
 
 .loader_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width: 100%;
   background-color: white;
@@ -69,10 +72,8 @@ body {
   width: 100px;
   height: 100px;
   margin: auto;
-  top: 50%;
-  right: 50%;
   border-radius: 50%;
-  display: inline-block;
+  display: flex;
   position: fixed;
   border: 6px solid;
   border-color: #99E2D0 #99E2D0 transparent transparent;
@@ -184,7 +185,6 @@ body {
   100% {
     opacity: 0;
     transform: rotate(0);
-    transform: opacity(0);
     visibility: hidden;
   }
 }
@@ -200,7 +200,6 @@ body {
   100% {
     opacity: 0;
     transform: rotate(0);
-    transform: opacity(0);
     visibility: hidden;
   }
 }
@@ -257,12 +256,12 @@ body {
   margin: 15px 30px 0px;
 }
 .search h2 {
-  font-size: 17px;
+  font-size: 26px;
 }
 .search p {
   color: grey;
   font-weight: 300;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 /* A REVOIR!!!*/
@@ -419,32 +418,13 @@ body {
 .restaurants .card_legende p {
   font-size: 13px;
 }
-.restaurants .card_legende .favori {
-  font-size: 25px;
-  height: 25px;
-}
-.restaurants .card_legende .favori .note_vide {
-  opacity: 1;
-  -webkit-background-clip: text;
-          background-clip: text;
-  transition: all 0.4s ease;
-}
-.restaurants .card_legende .favori .note_pleine {
-  position: relative;
-  opacity: 1;
-  right: 31px;
-  -webkit-background-clip: text;
-          background-clip: text;
-  transform-origin: center;
-  background-color: #9356DC;
-}
-.restaurants .card_legende .favori:hover .note_vide {
+.restaurants .card_legende .favori:hover .coeur_vide {
   opacity: 0;
 }
-.restaurants .card_legende .favori:hover .note_pleine {
+.restaurants .card_legende .favori:hover .coeur_plein {
   scale: 1.1;
-  -webkit-animation: opacity 1s ease-in-out forwards;
-          animation: opacity 1s ease-in-out forwards;
+  -webkit-animation: opacity 0.8s ease-in-out forwards;
+          animation: opacity 0.8s ease-in-out forwards;
 }
 @-webkit-keyframes opacity {
   0% {
@@ -488,6 +468,30 @@ body {
 }
 .restaurants .card--nouveau p {
   visibility: visible;
+}
+
+.favori, .favori_restaurant {
+  font-size: 25px;
+  width: 10%;
+  display: flex;
+}
+
+.coeur_vide {
+  opacity: 1;
+  -webkit-background-clip: text;
+          background-clip: text;
+  transition: all 0s ease;
+}
+
+.coeur_plein {
+  position: relative;
+  right: 25px;
+  opacity: 0;
+  color: transparent;
+  transform-origin: center;
+  -webkit-background-clip: text;
+          background-clip: text;
+  background-image: linear-gradient(355deg, #9356DC, #FF79DA);
 }
 
 footer {
@@ -541,7 +545,20 @@ footer h4 {
   font-family: Shrikhand, sans-serif;
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+}
+.menu__container .menu__title .favori_restaurant .coeur_plein_restaurant {
+  right: 25px;
+  opacity: 0;
+}
+.menu__container .menu__title .favori_restaurant:hover .coeur_vide {
+  opacity: 0;
+}
+.menu__container .menu__title .favori_restaurant:hover .coeur_plein_restaurant {
+  scale: 1.1;
+  -webkit-animation: opacity 0.8s ease-in-out forwards;
+          animation: opacity 0.8s ease-in-out forwards;
 }
 @media screen and (min-width: 992px) {
   .menu__container .menu__title {
@@ -551,7 +568,6 @@ footer h4 {
 }
 .menu__container .menu__title a {
   align-self: center;
-  font-size: 25px;
 }
 .menu__container .menu_card:hover .menu_element .clicked {
   transform: translateX(-55px);
